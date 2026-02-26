@@ -12,5 +12,5 @@ Search for `toolkit.legacyUserProfileCustomizations.stylesheets` and toggle it t
 In the Firefox **Address Bar**, navigate to `about:support`, Search for **Profile Folder** and click on the **Open Folder** button <br>
 Create a new folder and name it `chrome` (with lowercase) <br>
 
-Unzip and paste the downloaded files inside the **chrome folder** <br>
+Clone this repo into the **chrome folder** <br>
 Restart Firefox, and enjoy your new theme!
