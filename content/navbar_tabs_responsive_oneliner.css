@@ -20,9 +20,22 @@ See the above repository for updates as well as full license text. */
   
   /* Modify these to change relative widths or default height */
   #navigator-toolbox{
-    --uc-navigationbar-width: 40vw;
+    --uc-navigationbar-width: 40vw;   /* Width reserved for the left section (nav buttons + urlbar) */
     --uc-toolbar-height: 40px;
-    --uc-urlbar-min-width: 50vw; /* minimum width for opened urlbar */
+    --uc-urlbar-min-width: 50vw;      /* minimum width for opened urlbar */
+    --uc-nav-buttons-width: 150px;    /* Estimated total width of back/forward/reload/home buttons.
+                                         Increase if you have more nav buttons in the toolbar. */
+    /* Combined width of the OS window-control buttons (minimise / maximise / close).
+       On Windows 11 this is approximately 3 × 46 px = 138 px; 140 px is a safe default.
+       macOS and GTK place the controls on the LEFT, so this value is irrelevant there
+       (those platforms are handled by the position:fixed rule further below). */
+    --uc-window-controls-width: 140px;
+    /* Space reserved at the right of the tab strip for the extensions/profile/menu
+       buttons that live in #nav-bar but appear in that right-side slot.
+       Roughly 3 buttons × ~40 px = ~120 px; 130 px adds a small safety margin.
+       If you have many pinned extension buttons, increase this value to prevent
+       the tab strip from bleeding behind those buttons. */
+    --uc-right-section-width: 130px;
   }
 
   #scrollbutton-up,
@@ -32,7 +45,9 @@ See the above repository for updates as well as full license text. */
 /* Dependent on how many items are in navigation toolbar ADJUST AS NEEDED */
   @media screen and (max-width: 1500px){
     #urlbar-container{
-      min-width: 300px !important;
+      /* Safety floor: flex-basis (set below) is the primary width control.
+         200 px is a reasonable minimum when the window is very narrow. */
+      min-width: 200px !important;
       flex-shrink: 1 !important;
     }
   }
@@ -41,9 +56,21 @@ See the above repository for updates as well as full license text. */
   :root[uidensity="compact"] #navigator-toolbox{ --uc-toolbar-height: 34px; }
   :root[uidensity="touch"] #navigator-toolbox{ --uc-toolbar-height: 44px; }
 
+  /* #TabsToolbar — the horizontal bar that holds all browser tabs.
+     margin-left pushes it to the right so it sits beside #nav-bar visually.
+     margin-right leaves room on the right for the extensions/profile/menu
+     buttons that are rendered in #nav-bar but appear in that space visually. */
   #TabsToolbar{
     margin-left: var(--uc-navigationbar-width);
     --tabs-navbar-shadow-size: 0px;
+  }
+
+  /* #TabsToolbar-customization-target — the drag-and-drop customisation zone
+     inside #TabsToolbar that holds #tabbrowser-tabs and the new-tab/all-tabs
+     buttons.  The right margin keeps the tab strip from bleeding into the area
+     occupied by the right-side nav buttons. */
+  #TabsToolbar-customization-target{
+    margin-right: var(--uc-right-section-width) !important;
   }
   #tabbrowser-tabs{
   --tab-min-height: calc(var(--uc-toolbar-height) - 2 * var(--tab-block-margin,0px)) !important;
@@ -52,9 +79,41 @@ See the above repository for updates as well as full license text. */
   /* This isn't useful when tabs start in the middle of the window */
   .titlebar-spacer[type="pre-tabs"]{ display: none }
   
+  /* #nav-bar — the navigation toolbar that contains the back/forward/reload
+     buttons, the URL bar, the extensions button, the profile button, and the
+     hamburger menu button.
+
+     We extend its width to cover almost the full viewport (stopping just before
+     the window-control buttons) so that the right-side items (extensions,
+     profile, hamburger) land visually next to those controls.  The background
+     is made transparent so the tab strip in #TabsToolbar shows through the
+     middle section.  pointer-events:none on the bar itself lets clicks on the
+     transparent area reach the tabs below; pointer-events:auto is restored on
+     every direct child so that buttons and the urlbar remain interactive. */
   #navigator-toolbox > #nav-bar{
-    margin-right:calc(100vw - var(--uc-navigationbar-width));
+    margin-right: var(--uc-window-controls-width);
     margin-top: calc(0px - var(--uc-toolbar-height));
+    background: transparent !important;
+    pointer-events: none !important;
+  }
+
+  /* Re-enable interactivity for every element inside the nav-bar.
+     #nav-bar-customization-target is the flex container that holds the actual
+     toolbar buttons; its children each receive pointer-events:auto so they
+     stay clickable even though the parent bar is pointer-events:none. */
+  #nav-bar-customization-target > * {
+    pointer-events: auto !important;
+  }
+
+  /* Constrain the URL bar so it does not grow into the area reserved for tabs.
+     flex-grow:0 keeps it at its flex-basis (≈ left-section width minus nav buttons).
+     --uc-nav-buttons-width accounts for back/forward/reload/home; adjust that variable
+     if you have a different number of buttons.
+     The auto left-margin on #unified-extensions-button (see theme.css) then
+     consumes the remaining space, pushing extensions/profile/menu to the right. */
+  #urlbar-container{
+    flex-grow: 0 !important;
+    flex-basis: calc(var(--uc-navigationbar-width) - var(--uc-nav-buttons-width)) !important;
   }
 
   /* Window drag space  */
