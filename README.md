@@ -4,7 +4,7 @@ This is a clean and minimal theme for the Firefox Browser.
 
 This theme is a fork of <https://github.com/eduwz/firefox-minimalist>.
 
-# Installation
+## Installation
 
 In the Firefox **Address Bar**, navigate to `about:config` and accept the risks<br>
 Search for `toolkit.legacyUserProfileCustomizations.stylesheets` and toggle it to `true` (by double clicking on it)
