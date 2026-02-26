@@ -131,7 +131,7 @@ toolbarbutton{
   margin-block-start: 6px !important;
 }
 .titlebar-button {
-  padding-inline: 14px !important;
+  padding-inline: 8px !important;
   transition: opacity 0.2s ease;
 }
 .toolbarbutton-1{
@@ -165,8 +165,14 @@ toolbarbutton{
 this is affecting pages contents somehow, reminder look into later.
 */
 .tabbrowser-tab[fadein]{
-  max-width: 140px !important;
+  /* max-width: 140px; */
   min-width: 32px !important;
+}
+.tabbrowser-tab[fadein][selected]:not([pinned]){
+  /* max-width: 140px !important; */
+  flex-shrink: 0 !important;
+
+  min-width: 140px !important;
 }
 .tabbrowser-tab{
   padding: 0px !important;
@@ -180,11 +186,19 @@ this is affecting pages contents somehow, reminder look into later.
 .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected]) {
   background-color: var(--uc-hover-color) !important;
 }
+.tab-close-button{
+  display: flex !important;
+}
+.tabbrowser-tab[pinned] .tab-close-button {
+  display: none !important; /* Hide the close buttons for pinned tabs */
+}
 .tab-close-button:hover{
   background-color: var(--uc-hover-selected) !important;
 }
 #firefox-view-button{
-  display: none !important;
+  /* display: none !important; */
+
+  --prevent-syntax-error-on-empty-rule: 0px;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
