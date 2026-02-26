@@ -4,7 +4,7 @@
 This is a clean and minimal theme for the Firefox Browser <br>
 Created and Functional on Windows 11 with version 136.0 of [Firefox](https://www.mozilla.org/en-US/firefox/releases/). <br>
 
-This theme uses stylesheets from the [MrOtherGuy firefox-csshacks](https://github.com/MrOtherGuy/firefox-csshacks) repository.
+This theme is a fork of <https://github.com/eduwz/firefox-minimalist>.
 
 # Download
 
