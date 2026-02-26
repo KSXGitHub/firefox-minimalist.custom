@@ -52,18 +52,18 @@ https://github.com/eduwz/firefox-minimalist/tree/master/content/theme.css
         --uc-toolbar-height: var(--uc-height);
     }
 }
-  
+
 /*-------------------------------------------------------------------------------------------------------*/
 /* autohide_bookmarks_toolbar.css */
 /*-------------------------------------------------------------------------------------------------------*/
-  
+
 #PersonalToolbar{
     --toolbar-bgcolor: var(--uc-main-bgcolor) !important;
     --uc-autohide-toolbar-focus-rotation: 90deg;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
-/* media queries */ 
+/* media queries */
 /*-------------------------------------------------------------------------------------------------------*/
 
 @media screen and (max-width: 1340px){
@@ -94,7 +94,7 @@ https://github.com/eduwz/firefox-minimalist/tree/master/content/theme.css
 toolbarbutton,
 toolbaritem,
 #urlbar-container,
-.urlbar-input-container{ 
+.urlbar-input-container{
     max-height: var(--uc-height) !important;
 }
 .urlbar-input-container,
@@ -160,7 +160,7 @@ toolbarbutton{
 }
 /*
 .tab-content{
-  max-height: var(--uc-height) !important;  
+  max-height: var(--uc-height) !important;
 }
 this is affecting pages contents somehow, reminder look into later.
 */
@@ -200,7 +200,7 @@ this is affecting pages contents somehow, reminder look into later.
   margin-top: -2px !important;
 }
 .urlbarView{
-  --autocomplete-popup-separator-color: none !important; 
+  --autocomplete-popup-separator-color: none !important;
 }
 .urlbarView-row[selected],
 .urlbarView-row[type="switchtab"][selected],
@@ -247,7 +247,7 @@ menupopup > menuitem[_moz-menuactive="true"]{
   color: var(--uc-main-color) !important;
 }
 .download-state:hover,
-menupopup > menuitem:hover, 
+menupopup > menuitem:hover,
 menupopup > menu:hover,
 menupopup > menucaption:hover  {
   background-color: var(--uc-hover-selected) !important;
@@ -335,7 +335,7 @@ menuitem:hover,
   background-color: var(--uc-hover-color) !important;
 }
 .unified-extensions-item-menu-button.subviewbutton {
-  padding: 0 !important; 
+  padding: 0 !important;
 }
 #urlbar-one-offs-header-label{
   display: none !important;

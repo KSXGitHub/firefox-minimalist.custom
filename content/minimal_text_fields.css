@@ -32,7 +32,7 @@ See the above repository for updates as well as full license text. */
 .searchbar-textbox > moz-input-box{ opacity: 0.6 }
 
 #identity-box ~ *:hover,
-#tracking-protection-icon-container:hover, 
+#tracking-protection-icon-container:hover,
 #tracking-protection-icon-container ~ *:hover,
 #urlbar:focus-within > *,
 .urlbar-input-container:focus-within > *,
