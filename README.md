@@ -14,7 +14,7 @@ You can download the files by clicking [**HERE**](https://github.com/eduwz/firef
 
 In the Firefox **Address Bar**, navigate to `about:config` and accept the risks<br>
 Search for `toolkit.legacyUserProfileCustomizations.stylesheets` and toggle it to `true` (by double clicking on it)
-    
+
 In the Firefox **Address Bar**, navigate to `about:support`, Search for **Profile Folder** and click on the **Open Folder** button <br>
 Create a new folder and name it `chrome` (with lowercase) <br>
 
