@@ -187,7 +187,9 @@ this is affecting pages contents somehow, reminder look into later.
   background-color: var(--uc-hover-selected) !important;
 }
 #firefox-view-button{
-  display: none !important;
+  /* display: none !important; */
+
+  --prevent-syntax-error-on-empty-rule: 0px;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
