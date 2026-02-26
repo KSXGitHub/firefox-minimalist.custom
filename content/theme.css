@@ -165,8 +165,12 @@ toolbarbutton{
 this is affecting pages contents somehow, reminder look into later.
 */
 .tabbrowser-tab[fadein]{
-  max-width: 140px !important;
+  max-width: 140px;
   min-width: 32px !important;
+}
+.tabbrowser-tab[fadein][selected]:not([pinned]){
+  max-width: 140px !important;
+  flex-shrink: 0 !important;
 }
 .tabbrowser-tab{
   padding: 0px !important;
