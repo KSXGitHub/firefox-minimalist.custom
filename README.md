@@ -20,12 +20,3 @@ Create a new folder and name it `chrome` (with lowercase) <br>
 
 Unzip and paste the downloaded files inside the **chrome folder** <br>
 Restart Firefox, and enjoy your new theme!
-
-# File overview
-
-| File | What it styles |
-|------|---------------|
-| `userChrome.css` | **Browser chrome** — everything that surrounds the web page: toolbars, tabs, menus, sidebar, pop-ups, and any panel that is part of the Firefox UI itself. Changes here are invisible to web pages. |
-| `userContent.css` | **Page content** — styles that are injected *into* web pages loaded by Firefox. This theme uses it to restyle Firefox's own built-in pages (`about:newtab`, `about:home`, `about:blank`, etc.) so their colours match the dark theme. It has no effect on normal websites unless you explicitly target them. |
-
-In short: `userChrome.css` = the browser window frame; `userContent.css` = what is inside the frame.
