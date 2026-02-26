@@ -1,6 +1,5 @@
 # Firefox-Minimalist
 
-![](https://i.imgur.com/nFTXrH9.png)
 This is a clean and minimal theme for the Firefox Browser.
 
 This theme is a fork of <https://github.com/eduwz/firefox-minimalist>.
