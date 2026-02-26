@@ -1,8 +1,7 @@
 # Firefox-Minimalist
 
 ![](https://i.imgur.com/nFTXrH9.png)
-This is a clean and minimal theme for the Firefox Browser <br>
-Created and Functional on Windows 11 with version 136.0 of [Firefox](https://www.mozilla.org/en-US/firefox/releases/). <br>
+This is a clean and minimal theme for the Firefox Browser.
 
 This theme is a fork of <https://github.com/eduwz/firefox-minimalist>.
 
