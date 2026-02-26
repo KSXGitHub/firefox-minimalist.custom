@@ -189,6 +189,9 @@ this is affecting pages contents somehow, reminder look into later.
 .tab-close-button{
   display: flex !important;
 }
+.tabbrowser-tab[pinned] .tab-close-button {
+  display: none !important; /* Hide the close buttons for pinned tabs */
+}
 .tab-close-button:hover{
   background-color: var(--uc-hover-selected) !important;
 }
