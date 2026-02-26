@@ -131,7 +131,7 @@ toolbarbutton{
   margin-block-start: 6px !important;
 }
 .titlebar-button {
-  padding-inline: 14px !important;
+  padding-inline: 8px !important;
   transition: opacity 0.2s ease;
 }
 .toolbarbutton-1{
@@ -179,6 +179,9 @@ this is affecting pages contents somehow, reminder look into later.
 }
 .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected]) {
   background-color: var(--uc-hover-color) !important;
+}
+.tab-close-button{
+  display: flex !important;
 }
 .tab-close-button:hover{
   background-color: var(--uc-hover-selected) !important;
