@@ -4,6 +4,10 @@ This is a clean and minimal theme for the Firefox Browser.
 
 This theme is a fork of <https://github.com/eduwz/firefox-minimalist>.
 
+## Screenshot
+
+![Screnshot](https://ksxgithub.github.io/firefox-minimalist.custom.media/screenshot.png)
+
 ## Installation
 
 In the Firefox **Address Bar**, navigate to `about:config` and accept the risks<br>
