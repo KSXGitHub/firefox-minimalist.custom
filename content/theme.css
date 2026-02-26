@@ -89,67 +89,6 @@ https://github.com/eduwz/firefox-minimalist/tree/master/content/theme.css
 /* toolbar */
 /*-------------------------------------------------------------------------------------------------------*/
 
-/*
-  KEY IDs AND CLASS NAMES
-  ========================
-
-  #navigator-toolbox
-      The outermost wrapper for all browser toolbars (nav-bar + tabs toolbar +
-      bookmarks toolbar).  Acts as the coordinate origin for the one-liner layout.
-
-  #toolbar-menubar
-      The classic menu bar (File / Edit / View …).  Hidden by default on Windows.
-
-  #nav-bar  (#nav-bar-customization-target inside it)
-      The navigation toolbar.  Contains (DOM order, left → right):
-        back/forward/reload/home buttons
-        #urlbar-container
-        #fxa-toolbar-menu-button
-        #unified-extensions-button  (+ any individually-pinned extension buttons)
-        #PanelUI-button
-      In the one-liner layout this bar is pulled up via a negative margin-top so
-      it sits in the same row as #TabsToolbar.
-
-  #TabsToolbar  (#TabsToolbar-customization-target inside it)
-      The horizontal bar that holds browser tabs plus:
-        #tabbrowser-tabs        — the actual scrollable list of open tabs
-        #new-tab-button         — the + button to open a new tab
-        #alltabs-button         — the ˅ button to list all tabs
-      Also contains .titlebar-buttonbox-container at its far right.
-
-  .titlebar-buttonbox-container / .titlebar-buttonbox
-      Wrapper for the OS window-control buttons (minimise / maximise / close).
-      .titlebar-min, .titlebar-max, .titlebar-restore, .titlebar-close
-      are the individual buttons.  On macOS / some GTK setups these move to the
-      left via a position:fixed rule (see navbar_tabs_responsive_oneliner.css).
-
-  .titlebar-spacer[type="pre-tabs"]   — flex spacer before the tab strip
-  .titlebar-spacer[type="post-tabs"]  — flex spacer after the tab strip
-      Used to position tabs and the window-control cluster.  Both are hidden in
-      this theme to avoid unwanted gaps.
-
-  #urlbar-container  (#urlbar inside it)
-      Container for the address / search bar.  flex-basis is fixed so the bar
-      does not expand into the space reserved for the tab strip.
-
-  #unified-extensions-button
-      The puzzle-piece 🧩 button.  Opening it shows all installed extensions.
-      Extensions that are "pinned" to the toolbar appear as individual
-      toolbarbutton elements directly in #nav-bar-customization-target,
-      immediately after #unified-extensions-button in the DOM.
-
-  #fxa-toolbar-menu-button
-      The Firefox Account (Sync) profile button.  Displays the signed-in
-      avatar or a default icon when the user is not logged in.
-
-  #PanelUI-button
-      The hamburger ☰ button.  Opens the main Firefox application menu
-      (history, bookmarks, add-ons, settings, etc.).
-
-  #PersonalToolbar  (#PlacesToolbar inside it)
-      The bookmarks toolbar (shown below the one-liner row).
-*/
-
 #titlebar,
 #nav-bar,
 toolbarbutton,
@@ -163,19 +102,10 @@ toolbaritem,
 toolbarbutton{
   margin-block-start: none !important;
 }
-/* #fxa-toolbar-menu-button — the Firefox Account / Sync profile button.
-   Shows the signed-in avatar or a generic icon when not signed in.
-   order:3 places it after the extensions list (order:2) but before the
-   hamburger menu (order:4), matching the desired right-side ordering:
-   extensions → profile → menu → window controls. */
 #fxa-toolbar-menu-button {
   order: 3 !important;
 }
 
-/* #PanelUI-button — the "hamburger" ☰ button that opens the Firefox
-   application menu (bookmarks, history, settings, etc.).
-   order:4 places it last among the right-side items so it sits directly
-   beside the window-control buttons (the new rightmost position). */
 #PanelUI-button {
     order: 4 !important;
   margin-left: 0 !important;
@@ -414,24 +344,12 @@ menuitem:hover,
 #urlbar-one-offs-header-label{
   display: none !important;
 }
-/* #unified-extensions-button — the puzzle-piece 🧩 button that opens the
-   Extensions panel showing all installed add-ons.
-   order:2 places it right after the URL-bar/nav section.
-   margin-left:auto is the key trick: it consumes all remaining free space to
-   its left, which pushes this button (and every subsequent sibling) flush to
-   the right side of #nav-bar — the area visually to the right of the tab strip. */
 #unified-extensions-button{
   order: 2 !important;
   margin-left: auto !important;
   margin-right: 0 !important;
 }
 
-/* Individually-pinned extension buttons appear as toolbarbutton elements in
-   #nav-bar-customization-target (after #unified-extensions-button in the DOM).
-   We give them order:2 so they cluster with the extensions button on the right
-   side rather than drifting into the left (nav-buttons + urlbar) section.
-   Known built-in buttons are excluded via :not() so this only targets extension
-   buttons placed in the toolbar via drag-and-drop or extensions preferences. */
 #nav-bar-customization-target > toolbarbutton:not(#back-button):not(#forward-button):not(#stop-reload-button):not(#home-button):not(#reload-button):not(#stop-button):not(#PanelUI-button):not(#fxa-toolbar-menu-button):not(#unified-extensions-button) {
   order: 2 !important;
 }
